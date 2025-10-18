@@ -1,0 +1,17 @@
+.idea/
+.vscode/
+
+# Exclude everything in .codemie except specific files
+!docs/DEV_GUIDE.md
+
+**/__pycache__/*
+.DS_Store
+
+.venv
+venv
+.__pycache__
+
+.coverage
+coverage.xml
+dist
+site/

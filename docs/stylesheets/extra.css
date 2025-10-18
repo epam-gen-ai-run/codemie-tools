@@ -1,0 +1,34 @@
+/* Custom styles for CodeMie Tools documentation */
+
+:root {
+  --md-primary-fg-color: #4051b5;
+  --md-accent-fg-color: #5c6bc0;
+}
+
+/* Code block enhancements */
+.highlight pre {
+  border-radius: 0.3rem;
+}
+
+/* Admonition styles */
+.admonition {
+  border-radius: 0.3rem;
+}
+
+/* Table improvements */
+table {
+  border-radius: 0.3rem;
+  overflow: hidden;
+}
+
+/* API reference styling */
+.doc-heading {
+  border-bottom: 2px solid var(--md-primary-fg-color);
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+/* Enhanced code annotations */
+.md-typeset .tabbed-set>input:checked+label {
+  border-color: var(--md-accent-fg-color);
+}

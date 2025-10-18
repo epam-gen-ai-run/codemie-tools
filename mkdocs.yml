@@ -1,0 +1,246 @@
+site_name: CodeMie Tools
+site_description: Comprehensive Python toolkit for AI agents and automation
+site_url: https://epam-gen-ai-run.github.io/codemie-tools/
+repo_url: https://github.com/epam-gen-ai-run/codemie-tools
+repo_name: epam-gen-ai-run/codemie-tools
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  favicon: assets/images/favicon.svg  # CodeMie logo favicon
+  logo: assets/images/logo.svg        # CodeMie logo for header
+
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  features:
+    - navigation.instant        # Fast page loading
+    - navigation.tracking       # URL updates with scroll
+    # - navigation.tabs         # Top-level tabs (DISABLED - using sidebar instead)
+    # - navigation.tabs.sticky  # Sticky tabs (DISABLED)
+    - navigation.sections       # Section navigation
+    - navigation.expand         # Expand sections by default
+    - navigation.indexes        # Section index pages
+    - navigation.top            # Back to top button
+    - search.suggest            # Search suggestions
+    - search.highlight          # Highlight search terms
+    - search.share              # Share search link
+    - toc.follow                # TOC follows scroll
+    - content.code.copy         # Copy code button
+    - content.code.annotate     # Code annotations
+    - content.tabs.link         # Link content tabs
+
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            docstring_options:
+              ignore_init_summary: true
+            merge_init_into_class: true
+            show_source: true
+            show_root_heading: true
+            show_root_full_path: false
+            show_signature_annotations: true
+            separate_signature: true
+            members_order: source
+            show_if_no_docstring: false
+
+  - autorefs                    # Auto cross-references
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/epam-gen-ai-run/codemie-tools
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/codemie-tools/
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quick-start.md
+      # - Configuration: getting-started/configuration.md  # TODO: Create this file
+      # - Architecture: getting-started/architecture.md    # TODO: Create this file
+
+  - Toolkits:
+      - Overview: toolkits/overview.md
+
+      - File Analysis:
+          - Overview: toolkits/file-analysis/index.md
+          - XLSX:
+              - Overview: toolkits/file-analysis/xlsx/overview.md
+              - API Reference: toolkits/file-analysis/xlsx/api-reference.md
+              - Usage Guide: toolkits/file-analysis/xlsx/usage-guide.md
+              - Filtering: toolkits/file-analysis/xlsx/filtering.md
+              - Statistics: toolkits/file-analysis/xlsx/statistics.md
+              - Examples: toolkits/file-analysis/xlsx/examples.md
+          - PDF:
+              - Overview: toolkits/file-analysis/pdf/overview.md
+              - API Reference: toolkits/file-analysis/pdf/api-reference.md
+              - Examples: toolkits/file-analysis/pdf/examples.md
+          - DOCX:
+              - Overview: toolkits/file-analysis/docx/overview.md
+              - API Reference: toolkits/file-analysis/docx/api-reference.md
+              - Examples: toolkits/file-analysis/docx/examples.md
+          - PPTX:
+              - Overview: toolkits/file-analysis/pptx/overview.md
+              - API Reference: toolkits/file-analysis/pptx/api-reference.md
+              - Examples: toolkits/file-analysis/pptx/examples.md
+          - CSV:
+              - Overview: toolkits/file-analysis/csv/overview.md
+              - API Reference: toolkits/file-analysis/csv/api-reference.md
+              - Examples: toolkits/file-analysis/csv/examples.md
+
+      # - Project Management:                               # TODO: Create these files
+      #     - Overview: toolkits/project-management/index.md
+      #     - Jira:
+      #         - Overview: toolkits/project-management/jira/overview.md
+      #         - API Reference: toolkits/project-management/jira/api-reference.md
+      #         - Examples: toolkits/project-management/jira/examples.md
+      #     - Confluence:
+      #         - Overview: toolkits/project-management/confluence/overview.md
+      #         - API Reference: toolkits/project-management/confluence/api-reference.md
+      #         - Examples: toolkits/project-management/confluence/examples.md
+
+      # - Data Management:                                  # TODO: Create these files
+      #     - Overview: toolkits/data-management/index.md
+      #     - Elasticsearch:
+      #         - Overview: toolkits/data-management/elastic/overview.md
+      #         - API Reference: toolkits/data-management/elastic/api-reference.md
+      #         - Examples: toolkits/data-management/elastic/examples.md
+      #     - SQL:
+      #         - Overview: toolkits/data-management/sql/overview.md
+      #         - API Reference: toolkits/data-management/sql/api-reference.md
+      #         - Examples: toolkits/data-management/sql/examples.md
+      #     - File System:
+      #         - Overview: toolkits/data-management/file-system/overview.md
+      #         - API Reference: toolkits/data-management/file-system/api-reference.md
+      #         - Examples: toolkits/data-management/file-system/examples.md
+      #     - Code Executor:
+      #         - Overview: toolkits/data-management/code-executor/overview.md
+      #         - API Reference: toolkits/data-management/code-executor/api-reference.md
+      #         - Examples: toolkits/data-management/code-executor/examples.md
+
+      # Add more toolkits as documentation is created
+
+  # - Core Concepts:                                       # TODO: Create these files
+  #     - Toolkit Architecture: core-concepts/toolkit-architecture.md
+  #     - Tool Development: core-concepts/tool-development.md
+  #     - Configuration Models: core-concepts/configuration-models.md
+  #     - Error Handling: core-concepts/error-handling.md
+  #     - LangChain Integration: core-concepts/langchain-integration.md
+  #     - Base Classes: core-concepts/base-classes.md
+
+  # - Recipes:                                             # TODO: Create these files
+  #     - Overview: recipes/index.md
+  #     - Processing Excel Files: recipes/processing-excel-files.md
+  #     - Jira Automation: recipes/jira-automation.md
+  #     - Multi-Toolkit Workflows: recipes/multi-toolkit-workflows.md
+  #     - Error Recovery: recipes/error-recovery.md
+  #     - Performance Optimization: recipes/performance-optimization.md
+
+  # - Integrations:                                        # TODO: Create these files
+  #     - LangChain: integrations/langchain.md
+  #     - LangGraph: integrations/langgraph.md
+  #     - Custom Agents: integrations/custom-agents.md
+  #     - External APIs: integrations/external-apis.md
+
+  - Developer Guide:
+      - Contributing: CONTRIBUTING.md
+      - Code of Conduct: CODE_OF_CONDUCT.md
+      - Development Guide: DEV_GUIDE.md
+      # - Development Setup: developer-guide/development-setup.md      # TODO: Create these files
+      # - Toolkit Development: developer-guide/toolkit-development.md  # TODO: Create these files
+      # - Tool Development: developer-guide/tool-development.md        # TODO: Create these files
+      # - Testing: developer-guide/testing.md                          # TODO: Create these files
+      # - Code Style: developer-guide/code-style.md                    # TODO: Create these files
+      # - Release Process: developer-guide/release-process.md          # TODO: Create these files
+
+  # - API Reference:                                       # TODO: Create these files
+  #     - Overview: api-reference/index.md
+  #     - Base Classes:
+  #         - CodeMieTool: api-reference/base/codemie-tool.md
+  #         - BaseToolkit: api-reference/base/base-toolkit.md
+  #         - Models: api-reference/base/models.md
+  #         - Utils: api-reference/base/utils.md
+
+  # - Troubleshooting:                                     # TODO: Create these files
+  #     - Overview: troubleshooting/index.md
+  #     - Installation Issues: troubleshooting/installation-issues.md
+  #     - Configuration Issues: troubleshooting/configuration-issues.md
+  #     - Common Errors: troubleshooting/common-errors.md
+  #     - FAQ: troubleshooting/faq.md
+
+  - Changelog: changelog.md
